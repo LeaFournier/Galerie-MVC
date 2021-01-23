@@ -25,6 +25,14 @@ and open the template in the editor.
             </div>
             <div class="column">
                 <label for="auteur">Auteur:</label>
+                <select th:field="*{auteur}" id="auteur">
+                    <option value="0">Pas d'auteur</option>
+                    <option th:each="a : ${auteurs}" th:value="${a.id}" th:text="${a.nom}"/>
+                </select>   
+                
+                <input type="submit" value="Enregistrer" />
+                <input type="reset" value="Réinitialiser" />
+                
                 <input type="text" th:field="*{auteur}" placeholder="Auteur du tableau"/>	
 
                 <label for="support">Support:</label>
@@ -32,6 +40,7 @@ and open the template in the editor.
 
                 <label for="dimension">Dimension:</label>
                 <input type="text" th:field="*{dimension}" placeholder="Dimension du tableau"/>
+
             </div>
         </form>		
         <hr/>
